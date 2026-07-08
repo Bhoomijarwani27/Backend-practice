@@ -28,7 +28,7 @@ fs.rmdir("./copy",{recursive:true},function(err){ // delete folder with files al
     if(err) console.error(err);
      else console.log("removed");
 })
-create folder 
+  // create folder 
 fs.mkdir("./copy",function(err){ // create folder
     if(err) console.error(err);
      else console.log("folder created");
