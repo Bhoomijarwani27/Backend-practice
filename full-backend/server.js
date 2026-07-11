@@ -1,20 +1,9 @@
-const express = require('express');
-
-const app = express(); // create server instance
-
-app.get('/', (req, res) => { // define route for root URL
-  res.send('Hello World! ');
-});
-
-app.get("/about", (req, res) => { // define route for /about URL
-  res.send("This is the about page.");
-});
-
- app.listen(3000); // start server on port 3000
+// server start 
+const app = require('./src/app'); // import the server instance from app.js\
 
 
 
 
-
-
-
+app.listen(3000, () => {
+    console.log("server is running on port 3000");
+})
