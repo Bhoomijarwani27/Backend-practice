@@ -1,6 +1,8 @@
 // server start 
 const app = require('./src/app'); // import the server instance from app.js\
+const connectDB  = require("./src/db/db") // import the database connection function from db.js;
 
+connectDB()
 
 
 
