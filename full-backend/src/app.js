@@ -22,8 +22,47 @@ const notes = []
         })  
     } )  
 
-    
+    app.get('/notes',async (req,res) => {
+       
+        const note = await noteModel.find() // fetch all notes from the database
+        res.status(200).json({
+            message: "notes fetched successfully",
+            notes: note
+        })
+    })
 
+      app.get('/notes/title',async (req,res) => {
+       
+        const note = await noteModel.findOne({
+              title : "test_note"
+        } ) // fetch specific note from the database
+        res.status(200).json({
+            message: "notes fetched successfully",
+            notes: note
+        })
+    })
+
+    app.delete('/notes/:id',async (req,res) => {
+        const id = req.params.id;
+        await noteModel.findOneAndDelete({
+            _id : id
+        })
+        res.status(200).json({
+            message: "note deleted successfully"
+        })
+    })
+ 
+app.patch('/notes/:id' , async(req,res) => {
+    const id = req.params.id;
+    const description = req.body.description;
+
+    await noteModel.findOneAndUpdate({_id : id}, {
+        description: description
+    })
+    res.status(200).json({
+        message: "note updated successfully"
+    })
+})
 
 // // title , descripition  for api without database
 
