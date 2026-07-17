@@ -5,3 +5,8 @@ const postSchema = new mongoose.Schema({
     caption : String,
 
 })
+
+
+const postModel = mongoose.model("post" , postSchema);
+
+module.exports = postModel;
